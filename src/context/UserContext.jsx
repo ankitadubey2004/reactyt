@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { createContext } from "react";
 
-const UserContext = ({children}) => {
-    const Username = "Ankii"
+// Step 1: Context create
+export const DataContext = createContext();
+
+const UserContext = ({ children }) => {
+  const username = "Ankii";
 
   return (
-    <div>
-        {children}
-    </div>
-  )
-}
+    // Step 2: Provider wrap
+    <DataContext.Provider value={username}>
+      {children}
+    </DataContext.Provider>
+  );
+};
 
-export default UserContext
+export default UserContext;
